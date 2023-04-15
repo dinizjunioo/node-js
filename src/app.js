@@ -33,7 +33,7 @@ app.get('/products', (request , response, next) =>
 );
 
 
-app.post('/', (request , response, next) =>{
+app.post('/products', (request , response, next) =>{
     const {Autor, email, msg, msgSensivel } = request.body;
     const currentDados = readFile();
     currentDados.push(request.body);

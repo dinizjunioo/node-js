@@ -23,12 +23,10 @@ header {
 
 /* Estilos para o rodapé (footer) */
 footer {
+    display: flex;
     background: rgba(0, 0, 0, 0.3); /* Cor de fundo com transparência */
     padding: 20px;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    z-index: 1;
+    
 }
 
 /* Estilos para o conteúdo principal */
@@ -83,10 +81,10 @@ button {
 }
 
 #comentarios {
-    margin-top: 30px;
-}
-
-.comentario {
-    margin-top: 30px;
+    width: 100%;
+    align-items: center;
     text-align: center;
+    margin-top: 40px;
+    background-color: rgb(21, 36, 31);
+    border-radius: 10px;
 }

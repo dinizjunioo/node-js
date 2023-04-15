@@ -4,6 +4,98 @@
     <title>This is the title of the webpage!</title>
     <link rel="stylesheet" href="css/style.css">
     <script src="js/main.js" defer></script>
+    <style>
+      body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    color:bisque;
+    background-image: url(https://wallpaperset.com/w/full/b/0/d/93561.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+/* Estilos para o cabeçalho (header) */
+header {
+   
+    background: rgba(0, 0, 0, 0.3); /* Cor de fundo com transparência */
+    padding: 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+}
+
+/* Estilos para o rodapé (footer) */
+footer {
+    display: flex;
+    background: rgba(0, 0, 0, 0.3); /* Cor de fundo com transparência */
+    padding: 20px;
+    
+}
+
+/* Estilos para o conteúdo principal */
+.content {
+    margin-top: 100px; /* Espaçamento para não ficar sobreposto pelo cabeçalho */
+    margin-bottom: 100px; /* Espaçamento para não ficar sobreposto pelo rodapé */
+    padding: 20px;
+    text-align: center;
+}
+
+/* Estilos para a área de comentário */
+.wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+}
+
+#form {
+    width: 300px;
+    background: #f2f2f2;
+    padding: 20px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.inputBox {
+    margin-bottom: 10px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 5px;
+    border: none;
+    border-radius: 3px;
+    resize: none;
+}
+
+button {
+    background: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+#comentarios {
+    width: 100%;
+    align-items: center;
+    text-align: center;
+    margin-top: 40px;
+    background-color: rgb(21, 36, 31);
+    border-radius: 10px;
+}
+    </style>
   </head>
   <body>
     <header>
@@ -14,7 +106,6 @@
     <div class="content">
         <!-- Conteúdo principal do site aqui -->
         <h2>bem-vindo ao meu site!</h2>
-        <p>Sequência de imagens no background</p>
     </div>
    
     <div class="wrapper">
@@ -44,26 +135,10 @@
     </div>
 
 
-     <!--
-    <div class="comentario" id="comentario">
-        <h1>sei la</h1>
-    </div>
-
-
-    <h1>Verificação de Comentários</h1>
-  <div id="comments-container">
-    Aqui é onde os comentários serão exibidos
-  </div>
-  <button onclick="adicionarComentario()">Adicionar Comentário</button>
-
-  <form method="POST" action="/savecomment"><input type="text" name="comment" id="comment">
-  <button>comentar</button></form>  
- -->
-    <footer>
+    <footer style="position: fixed; bottom: 0; left: 0; right: 0; z-index: 1;">
       <!-- Conteúdo do rodapé aqui -->
-      <p>© 2023 Meu Site
-
-      </p>
+      <p style="margin: 0; padding: 20px;">© 2023 Meu Site</p>
     </footer>
+
   </body>
 </html>

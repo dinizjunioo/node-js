@@ -1,29 +1,26 @@
 
 
-let autor = document.getElementById("name");
+let autor = document.querySelector("#name");
 let email = document.getElementById("email");
 let msg = document.getElementById("msg");
 let btn_send = document.getElementById("btn");
 
-let dados = [];
+var dados = [];
 
-btn_send.onclick = function NovosDados()
+btn_send.onclick = function()
 {
-  console.log("clique");
-  console.log(autor.textContent);
-
+  console.log("clique" + autor.value);
   dados = {
-    "Autor": `${autor.textContent}`,
-    "email": `${email.textContent}`,
-    "msg": `${msg.textContent}`,
+    "Autor": `${autor.value}`,
+    "email": `${email.value}`,
+    "msg": `${msg.value}`,
     "msgSensivel": false
   }
   enviarDadosParaJSON(dados);
 }
 
 function enviarDadosParaJSON(dados) {
-    console.log("entrei aq");
-    fetch('http://localhost:3000', {
+    fetch('http://localhost:3000/products', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -46,7 +43,7 @@ function enviarDadosParaJSON(dados) {
 }
 
 
-const datas = [];
+//const datas = [];
 
 function receberDadosDoJSON() {
   console.log("entrei aqui");
@@ -63,19 +60,57 @@ function receberDadosDoJSON() {
 
         if (listComments) {
           data.forEach(function (comment)
-          {
+          {   
             var commentar = document.createElement("div");
             commentar.classList.add("item");
             commentar.className = "item";
-            //commentar.id = "".concat(comment.toString());
-            commentar.innerHTML = `             
-              <h3>${comment.Autor}</h3>
-              <h4>${comment.email}</h4>   
-              <div>
-                <p>${comment.msg}</p>
-              </div>
+            if (isSensitive(comment.msg)) {
+              comment.msgSensivel = true;
+
+              commentar.innerHTML = `  
+             <hr hight="1" size="100">           
+              <h3>Autor: ${comment.Autor}</h3>
+              <h4>Email: ${comment.email}</h4>   
+              </hr>
               `;
-            listComments.appendChild(commentar);
+              listComments.appendChild(commentar);
+              var sensitiveMsgElement = document.createElement("span");
+              sensitiveMsgElement.className = "sensitive";
+              sensitiveMsgElement.textContent = "Frase de baixo calão";
+              
+              var showButton = document.createElement("button");
+              showButton.textContent = "Mostrar Mesmo Assim";
+              
+              showButton.onclick = function() {
+                sensitiveMsgElement.style.display = "none";
+                showButton.style.display = "none";
+                commentar.innerHTML = `  
+             <hr hight="1" size="100">           
+              <h3>Autor: ${comment.Autor}</h3>
+              <h4>Email: ${comment.email}</h4>   
+              <div>
+                <p>Comentário: ${comment.msg}</p>
+              </div>
+              </hr>
+              `;
+              };
+              listComments.appendChild(sensitiveMsgElement);
+              listComments.appendChild(showButton);
+            } else {
+            
+
+            commentar.innerHTML = `  
+             <hr hight="1" size="100">           
+              <h3>Autor: ${comment.Autor}</h3>
+              <h4>Email: ${comment.email}</h4>   
+              <div>
+                <p>Comentário: ${comment.msg}</p>
+              </div>
+              </hr>
+              `;
+              listComments.appendChild(commentar);
+            }
+            
           });
         }
         resolve(); // Resolve a Promise após preencher o array
@@ -91,80 +126,53 @@ function receberDadosDoJSON() {
   });
 }
 
+receberDadosDoJSON();
 
 
 
-async function carregarComments() {
-
-  try {
-    await receberDadosDoJSON();
-    console.log('Dados obtidos:', datas);
-    // Continue a execução do código aqui, usando os dados obtidos no array datas
-  } catch (error) {
-    console.error('Erro ao obter dados:', error);
-  }
-
-  
-}
-carregarComments();
-
-
-/*
-// Comentários de exemplo
-var comments = [
-    "Esse é um comentário normal.",
-    "Esse comentário contém uma palavra sensível.",
-    "Esse é outro comentário normal.",
-    "Esse comentário também contém uma palavra sensível."
-  ];
 
   // Função para verificar se uma palavra é sensível
   function isSensitive(word) {
-    var sensitiveWords = ["sensível", "palavra", "outra palavra"]; // Lista de palavras sensíveis
-    return sensitiveWords.includes(word.toLowerCase());
-  }
+    var sensitiveWords = ["bicha", "buceta", "bosta",
+    "efecar",
+    "caralho",
+    "cagar",
+    "pênis",
+    "cacete",
+    "pica",
+    "cu",
+    "anus",
+    "foda-se",
+    "fodase",
+    "copular", 
+    "meter",
+    "pingolar", 
+    "trepar",
+    "pênis",
+    "esperma",
+    "energúmeno",
+    "piroca",
+    "pau",
+    "lixo",
+    "pênis",
+    "puta que o pariu",
+    "pqp",
+    "prostituta",
+    "merda",	
+    "porcaria",
+    "pessoa imprestável",
+    "Viado"]; // Lista de palavras sensíveis
 
-  // Função para exibir os comentários no HTML
-  function showComments() {
+    var frase = word.split(' ');
+    console.log(word);
+    console.log(frase);
 
-    var commentsContainer = document.getElementById("comments-container");
-
-    commentsContainer.innerHTML = ""; // Limpa o conteúdo existente
-
-    comments.forEach(function(comment)
-     {
-      var commentElement = document.createElement("div");
-      commentElement.className = "comment";
-      if (isSensitive(comment)) {
-        var sensitiveMsgElement = document.createElement("span");
-        sensitiveMsgElement.className = "sensitive";
-        sensitiveMsgElement.textContent = "Frase de baixo calão";
-        commentElement.appendChild(sensitiveMsgElement);
-        var showButton = document.createElement("button");
-        showButton.textContent = "Mostrar Mesmo Assim";
-        showButton.onclick = function() {
-          sensitiveMsgElement.style.display = "none";
-          showButton.style.display = "none";
-          commentElement.textContent = comment;
-        };
-        commentElement.appendChild(showButton);
-      } else {
-        commentElement.textContent = comment;
-      }
-      commentsContainer.appendChild(commentElement);
-    });
-  }
-
-
-  // Função para adicionar um novo comentário
-  function adicionarComentario() {
-    var novoComentario = prompt("Digite um novo comentário:");
-    if (novoComentario !== null && novoComentario.trim() !== "") {
-      comments.push(novoComentario);
-      showComments();
+    for(var  i=0; i < frase.length; i++)
+    {
+      console.log(frase[i]);
+      if (sensitiveWords.includes(frase[i].toLowerCase()) == true) return true;
     }
+    return false;
   }
 
-  // Chama a função para exibir os comentários
-  showComments();
-  */
+  
