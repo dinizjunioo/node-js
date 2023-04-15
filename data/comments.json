@@ -1,14 +1,1 @@
-[
-    {
-        "Autor": "diniz",
-        "email": "diniz@yahoo.com",
-        "film": "barbie",
-        "post": "uma obra prima."
-    },
-    {
-        "Autor": "junior",
-        "email": "junior@yahoo.com",
-        "film": "avatar2",
-        "post": "uma merda!"
-    }
-]
+[{"Autor":"iz","email":"diniz@yahoo.com","msg":"barbie","msgSensivel":false}]

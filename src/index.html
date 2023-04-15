@@ -6,16 +6,64 @@
     <script src="js/main.js" defer></script>
   </head>
   <body>
-    
-    <!-- project 2-->
-    <button id="open-btn">
-      <p> Clique para mais informações</p>
-    </button>
-    <div id="container">
-      <div id="modal">
-          <p>Aqui esta as info!</p>
-          <div id="close-btn">&times;</div>
-      </div>
+    <header>
+      <!-- Conteúdo do cabeçalho aqui -->
+      <h1>Meu Site</h1>
+    </header>
+
+    <div class="content">
+        <!-- Conteúdo principal do site aqui -->
+        <h2>bem-vindo ao meu site!</h2>
+        <p>Sequência de imagens no background</p>
     </div>
+   
+    <div class="wrapper">
+      <h1> Comentários </h1>
+        <form id="form">
+            <div class="inputBox">
+                <label for="name">Name:</label>
+                <br>
+                <input type="text" id="name" placeholder="Enter your name" required>
+            </div>
+            <div class="inputBox">
+              <label for="email">Email:</label>
+              <br>
+              <textarea id="email" placeholder="Enter your email" required></textarea>
+          </div>
+            <div class="inputBox">
+                <label for="msg">Message:</label>
+                <br>
+                <textarea id="msg" placeholder="Enter your message" required></textarea>
+            </div>
+            <button id="btn"> Send </button>
+        </form>
+        <hr>
+        <div class="comentarios" id="comentarios">
+
+        </div>
+    </div>
+
+
+     <!--
+    <div class="comentario" id="comentario">
+        <h1>sei la</h1>
+    </div>
+
+
+    <h1>Verificação de Comentários</h1>
+  <div id="comments-container">
+    Aqui é onde os comentários serão exibidos
+  </div>
+  <button onclick="adicionarComentario()">Adicionar Comentário</button>
+
+  <form method="POST" action="/savecomment"><input type="text" name="comment" id="comment">
+  <button>comentar</button></form>  
+ -->
+    <footer>
+      <!-- Conteúdo do rodapé aqui -->
+      <p>© 2023 Meu Site
+
+      </p>
+    </footer>
   </body>
 </html>

@@ -1,85 +1,92 @@
-body
-{
-    background: url(https://wallpaperset.com/w/full/b/0/d/93561.jpg) no-repeat;
-    height: 90vh;
-    position: relative;
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    color:bisque;
+    background-image: url(https://wallpaperset.com/w/full/b/0/d/93561.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
-#open-btn
-{
-    position: absolute;
-    top: 70%;
-    left: 10%;
-    width: 350px;
-    height: 80px;
-    background-color: transparent;
-    border: solid 1px beige;
-    border-color: beige ;
-    color:beige;
-    border-radius: 3px;
-    cursor:pointer;
-    font-size: 1rem;
-    font-family: 'Courier New', Courier, monospace;
-    transition: .5s;
-}
-#open-btn:hover
-{
-    background-color: beige;
-    color:#444;
-}
 
-#modal
-{
-    background-color: aliceblue;
-    top:50%;
-    left:50%;
-    position:absolute;
-    font-size: 1.5rem; 
-    transform: translate(-50%,-50%);  
-    justify-content: space-between;
-    align-items: center;
-    display: flex;
-    padding: 10px 10px;
-    border-radius: 5px;
-
-    /*animacao*/
-    animation-name: animatemodal;
-    animation-duration: .4s;
-}
-
-#container
-{
-    display: none;
+/* Estilos para o cabeçalho (header) */
+header {
+   
+    background: rgba(0, 0, 0, 0.3); /* Cor de fundo com transparência */
+    padding: 20px;
     position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
     z-index: 1;
-    background-color: rgba(0,0,0,.2);
-    top:0;
-    left:0;
-    width: 100%;
-    height: 100%;
 }
-#close-btn
-{
-    font-size: 3rem;
-    margin-left: 5px;
-    color:crimson;
+
+/* Estilos para o rodapé (footer) */
+footer {
+    background: rgba(0, 0, 0, 0.3); /* Cor de fundo com transparência */
+    padding: 20px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+}
+
+/* Estilos para o conteúdo principal */
+.content {
+    margin-top: 100px; /* Espaçamento para não ficar sobreposto pelo cabeçalho */
+    margin-bottom: 100px; /* Espaçamento para não ficar sobreposto pelo rodapé */
+    padding: 20px;
+    text-align: center;
+}
+
+/* Estilos para a área de comentário */
+.wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+}
+
+#form {
+    width: 300px;
+    background: #f2f2f2;
+    padding: 20px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.inputBox {
+    margin-bottom: 10px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 5px;
+    border: none;
+    border-radius: 3px;
+    resize: none;
+}
+
+button {
+    background: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 3px;
     cursor: pointer;
 }
 
-
-#close-btn:hover
-{
-    color:tomato;
+#comentarios {
+    margin-top: 30px;
 }
 
-@keyframes animatemodal {
-
-    from{
-        left:-300px;
-        opacity: 0.5;
-    }
-    to{
-        top:50%;
-        opacity: 1;
-    }
+.comentario {
+    margin-top: 30px;
+    text-align: center;
 }
