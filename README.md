@@ -1,3 +1,7 @@
 # node-js
 
-### sei la da minha vida
+### instalar as dependências
+npm install 
+
+### execução
+npm start
